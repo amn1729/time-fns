@@ -22,7 +22,9 @@ export function toTime(t: string): Time {
 
 export function getValue(time?: Time): number {
   if (!time) return 0;
-  if (time.p === "AM" && time.h === 12) return time.m;
+  // if (time.p === "AM" && time.h === 12) return time.m;
+  // Considering 12:00 AM is max time
+  if (time.p === "AM" && time.h === 12) return 24 * 60 + time.m;
   return (time.h + (time.p === "PM" && time.h !== 12 ? 12 : 0)) * 60 + time.m;
 }
 
