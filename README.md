@@ -23,6 +23,9 @@ Examples:
 ### isBetween `(time: Time, start: Time, end: Time) => boolean`
 Returns true if `time` is between `start` and `end` else false
 
+### addMinutes `(time: Time, minutes: number) => Time`
+Add minutes to a time.
+
 ### formatTime `(time: Time) => string`
 Returns formatted string from `time`  
 Examples:  
