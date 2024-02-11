@@ -37,6 +37,15 @@ export function formatTime(time: Time): string {
   return `${padZero(time.h)}:${padZero(time.m)} ${time.p}`;
 }
 
+export function addMinutes(time: Time, minutes: number) {
+  const totalM = getValue(time) + minutes;
+  const hrs = Math.floor(totalM / 60);
+  const m = totalM % 60;
+  const h = hrs % 12 || 12;
+  const period = hrs < 12 || hrs === 24 ? "AM" : "PM";
+  return { h, m, p: period as "AM" | "PM" };
+}
+
 export function padZero(str: string | number, length: number = 2): string {
   return str.toString().padStart(length, "0");
 }
