@@ -37,7 +37,8 @@ export function formatTime(time: Time): string {
   return `${padZero(time.h)}:${padZero(time.m)} ${time.p}`;
 }
 
-export function addMinutes(time: Time, minutes: number) {
+export function addMinutes(time: Time, minutes: number): Time {
+  if (minutes === 0) return time;
   const totalM = getValue(time) + minutes;
   const hrs = Math.floor(totalM / 60);
   const m = totalM % 60;
